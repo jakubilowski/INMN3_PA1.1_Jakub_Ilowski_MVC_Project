@@ -1,0 +1,50 @@
+﻿@model webApplication.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 style="text-align:center">Usuń produkt</h1>
+<hr />
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nazwa produktu
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NazwaProduktu)
+        </dd>
+        <dt class = "col-sm-2">
+            Model
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            Rodzaj
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rodzaj)
+        </dd>
+        <dt class = "col-sm-2">
+            Cena
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+        <dt class = "col-sm-2">
+            Ilość
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ilosc)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        @{<span>Czy jesteś pewien, że chcesz usunać produkt: </span><input type="checkbox" onchange="document.getElementById('but').disabled = !this.checked;">
+        <p></p>
+            <input type="submit" value="Delete" class="btn btn-danger" id="but" disabled /> } |
+        <a asp-action="Index">Powrót do poprzedniej strony</a>
+    </form>
+</div>
